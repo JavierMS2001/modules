@@ -23,7 +23,8 @@ def get_pokemon_data(pokemon_name, fields=None):
 
 def main():
     module_args = dict(
-        name=dict(type='str', required=True)
+        name=dict(type='str', required=True),
+        fields=dict(type='list', default=None)
     )
 
     result = dict(
@@ -37,8 +38,10 @@ def main():
         supports_check_mode=True
     )
 
-    pokemon_name = module.params['name', "types"]
-    pokemon_data = get_pokemon_data(pokemon_name)
+    pokemon_name = module.params['name']
+    fields = module.params['fields']
+
+    pokemon_data = get_pokemon_data(pokemon_name, fields)
 
     if pokemon_data:
         result['pokemon_data'] = pokemon_data
