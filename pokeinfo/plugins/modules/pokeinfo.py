@@ -33,7 +33,7 @@ def main():
         result['pokemon_data'] = pokemon_data
         module.exit_json(**result)
     else:
-        result['error'] = f"Pokemon '{pokemon_name}' not found"
+        result['error'] = f"Pokemon with name: '{pokemon_name}' dont found."
         module.fail_json(msg="Failed to fetch Pokemon data", **result)
 
 if __name__ == '__main__':
