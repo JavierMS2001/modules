@@ -37,7 +37,7 @@ def main():
         supports_check_mode=True
     )
 
-    pokemon_name = module.params['name']
+    pokemon_name = module.params['name', "types"]
     pokemon_data = get_pokemon_data(pokemon_name)
 
     if pokemon_data:
