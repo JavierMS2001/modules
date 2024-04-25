@@ -2,7 +2,7 @@
 from ansible.module_utils.basic import AnsibleModule
 import requests
 
-def get_pokemon_data(pokemon_name):
+def get_pokemon_data(pokemon_name, fields=None):
     api_url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_name.lower()}"
     response = requests.get(api_url)
     if response.status_code == 200:
